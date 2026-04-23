@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Руслан Салманов — Юрист</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#07111f;
+      --bg2:#0a1628;
+      --bg3:#0d1c33;
+      --panel:rgba(14,25,44,.72);
+      --panel-strong:rgba(15,28,50,.92);
+      --line:rgba(128,168,255,.14);
+      --line-strong:rgba(128,168,255,.28);
+      --text:#eef3fb;
+      --muted:#9eb0ca;
+      --accent:#86acff;
+      --accent-soft:rgba(134,172,255,.12);
+      --shadow:0 24px 80px rgba(0,0,0,.28);
+      --radius:24px;
+      --max:1180px;
+    }
+
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      font-family:"IBM Plex Sans", system-ui, sans-serif;
+      color:var(--text);
+      line-height:1.55;
+      overflow-x:hidden;
+      background: var(--bg);
+      background-image:
+        radial-gradient(circle at 10% 12%, rgba(134,172,255,.08), transparent 22%),
+        radial-gradient(circle at 88% 18%, rgba(134,172,255,.07), transparent 24%),
+        linear-gradient(180deg, #07111f 0%, #081322 52%, #091524 100%);
+    }
+
+    body::before {
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(rgba(255,255,255,.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.012) 1px, transparent 1px);
+      background-size:46px 46px;
+      mask-image:radial-gradient(circle at center, black 42%, transparent 88%);
+      opacity:.2;
+    }
+
+    a { color:inherit; text-decoration:none; }
+    img { display:block; max-width:100%; }
+
+    .wrap {
+      width:min(var(--max), calc(100% - 48px));
+      margin:0 auto;
+    }
+
+    .nav {
+      position:sticky;
+      top:0;
+      z-index:40;
+      background:rgba(7,17,31,.76);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav-inner {
+      width:min(var(--max), calc(100% - 48px));
+      margin:0 auto;
+      min-height:84px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      padding:14px 0;
+    }
+
+    .brand {
+      width:68px;
+      height:68px;
+      min-width:68px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:20px;
+      background:linear-gradient(180deg, rgba(134,172,255,.18), rgba(255,255,255,.03));
+      border:1px solid var(--line-strong);
+      box-shadow:var(--shadow);
+      font-size:24px;
+      font-weight:800;
+      line-height:1;
+      letter-spacing:0;
+      user-select:none;
+    }
+
+    .nav-links {
+      display:flex;
+      align-items:center;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a {
+      font-size:17px;
+      font-weight:500;
+      color:#b2c0dd;
+      transition:color .2s ease, transform .2s ease;
+    }
+
+    .nav-links a:hover {
+      color:var(--text);
+      transform:translateY(-1px);
+    }
+
+    .hero {
+      position:relative;
+      min-height:calc(100vh - 84px);
+      display:flex;
+      align-items:center;
+      padding:22px 0 40px;
+      overflow:hidden;
+    }
+
+    #particles {
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      opacity:.8;
+      pointer-events:none;
+    }
+
+    .hero-grid {
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:minmax(0,1.02fr) minmax(340px,470px);
+      gap:30px;
+      align-items:center;
+    }
+
+    h1 {
+      margin:0;
+      font-size:clamp(48px, 6.6vw, 80px);
+      line-height:.92;
+      letter-spacing:-.04em;
+      font-weight:700;
+      font-style:normal;
+      max-width:720px;
+    }
+
+    .hero-head {
+      display:block;
+      margin-top:14px;
+    }
+
+    .hero-title {
+      font-size:clamp(20px,2.4vw,28px);
+      line-height:1.22;
+      color:#dde7f5;
+      font-weight:500;
+    }
+
+    .intro {
+      margin-top:14px;
+      max-width:640px;
+      font-size:17px;
+      color:var(--muted);
+    }
+
+    .intro strong {
+      color:var(--text);
+      font-weight:700;
+    }
+
+    .hero-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .meta-chip {
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:11px 16px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(134,172,255,.10), rgba(255,255,255,.02));
+      color:#d8e2f5;
+      font-size:14px;
+      font-weight:500;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+    }
+
+    .meta-chip svg {
+      width:16px;
+      height:16px;
+      fill:#fff;
+      flex-shrink:0;
+    }
+    .meta-chip,
+
+    .meta-chip:hover,
+    .hero-badge:hover {
+      transform: translateY(-1px);
+      border-color: rgba(134,172,255,.34);
+      background: rgba(134,172,255,.12);
+    }
+
+    .hero-links {
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .contact-pill {
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius:16px;
+      border:1px solid var(--line-strong);
+      background:rgba(255,255,255,.03);
+      font-size:16px;
+      font-weight:600;
+      transition:transform .22s ease, border-color .22s ease, background .22s ease;
+    }
+
+    .contact-pill:hover {
+      transform:translateY(-2px);
+      border-color:rgba(134,172,255,.42);
+      background:rgba(134,172,255,.09);
+    }
+
+    .contact-pill svg {
+      width:18px;
+      height:18px;
+      fill:#fff;
+      flex-shrink:0;
+    }
+
+    .scroll-link {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top:14px;
+      color:var(--accent);
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .photo-panel {
+      position:relative;
+      min-height:590px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+    }
+
+    .photo-panel::before {
+      content:"";
+      position:absolute;
+      inset:8% 8% 8%;
+      border-radius:34px;
+      background:
+        linear-gradient(180deg, rgba(134,172,255,.15), rgba(255,255,255,.02)),
+        rgba(255,255,255,.02);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .photo-panel::after {
+      content:"";
+      position:absolute;
+      width:80%;
+      height:76%;
+      bottom:7%;
+      border-radius:999px;
+      background:radial-gradient(circle, rgba(134,172,255,.24), rgba(134,172,255,.08) 38%, transparent 72%);
+      filter:blur(18px);
+    }
+
+    .photo-wrap {
+      position:relative;
+      z-index:2;
+      width:min(100%, 448px);
+      overflow:hidden;
+      border-radius:28px;
+    }
+
+    .photo {
+      width:100%;
+      object-fit:cover;
+      display:block;
+      filter:drop-shadow(0 26px 48px rgba(0,0,0,.34));
+    }
+
+    .photo-wrap::after {
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:150px;
+      background:linear-gradient(
+        to bottom,
+        rgba(7,17,31,0) 0%,
+        rgba(7,17,31,.28) 28%,
+        rgba(7,17,31,.62) 62%,
+        rgba(7,17,31,.94) 100%
+      );
+      pointer-events:none;
+    }
+    .photo-stat {
+      position:absolute;
+      left:22px;
+      bottom:18px;
+      z-index:3;
+      display:flex;
+      align-items:flex-end;
+      gap:10px;
+      pointer-events:none;
+    }
+
+    .photo-stat-num {
+      font-size:48px;
+      line-height:.85;
+      letter-spacing:-.02em;
+      font-weight:500;
+      color:#f3f7fd;
+    }
+
+    .photo-stat-text {
+      font-size:15px;
+      color:#d8e2f4;
+      font-weight:600;
+      margin-bottom:9px;
+      max-width:120px;
+      line-height:1.05;
+      text-shadow:0 8px 24px rgba(0,0,0,.28);
+    }
+
+    .section {
+      padding:8px 0 60px;
+    }
+
+    .section-title {
+      margin:0 0 10px;
+      font-size:clamp(28px, 3.7vw, 40px);
+      line-height:1.04;
+      letter-spacing:-.045em;
+      font-weight:800;
+    }
+
+    .section-text {
+      margin:0;
+      max-width:780px;
+      color:var(--muted);
+      font-size:17px;
+    }
+
+    .section-head {
+      margin-bottom:16px;
+    }
+
+    .approach-grid {
+      display:grid;
+      grid-template-columns:1.05fr .95fr .9fr;
+      gap:12px;
+      margin-top:14px;
+      align-items:stretch;
+    }
+
+    .card {
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+      transition:transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+
+    .card:hover {
+      transform:translateY(-3px);
+      border-color:rgba(134,172,255,.34);
+      background:rgba(18,31,55,.84);
+    }
+
+    .card h3 {
+      margin:0 0 10px;
+      font-size:20px;
+      line-height:1.1;
+      letter-spacing:-.03em;
+      font-weight:700;
+    }
+
+    .card p {
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .quote-card {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:left;
+      background:linear-gradient(135deg, rgba(134,172,255,.16), rgba(255,255,255,.03));
+      border:1px solid rgba(134,172,255,.24);
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 85% 20%, rgba(134,172,255,.18), transparent 36%);
+      pointer-events: none;
+    }
+
+    .quote-card p {
+      color:#eff4fc;
+      font-size:17px;
+      font-weight:600;
+      line-height:1.45;
+    }
+
+    .practice-grid {
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:12px;
+      margin-top:16px;
+    }
+
+    .accordion {
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      transition:transform .25s ease, border-color .25s ease;
+    }
+
+    .accordion:hover {
+      transform:translateY(-2px);
+      border-color:rgba(134,172,255,.3);
+    }
+
+    .accordion summary {
+      list-style:none;
+      cursor:pointer;
+      display:grid;
+      grid-template-columns:54px minmax(0,1fr) 28px;
+      align-items:center;
+      gap:14px;
+      padding:18px 20px;
+    }
+
+    .accordion summary::-webkit-details-marker { display:none; }
+
+    .num {
+      width:50px;
+      height:50px;
+      display:grid;
+      place-items:center;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      color:var(--accent);
+      font-size:14px;
+      font-weight:800;
+    }
+
+    .acc-title {
+      font-size:clamp(18px, 2vw, 23px);
+      line-height:1.12;
+      letter-spacing:-.03em;
+      font-weight:700;
+    }
+
+    .acc-icon {
+      width:28px;
+      height:28px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-size:17px;
+      transition:transform .22s ease, color .22s ease;
+    }
+
+    .accordion[open] .acc-icon {
+      transform:rotate(45deg);
+      color:var(--text);
+    }
+
+    .acc-body {
+      padding:0 20px 20px 86px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .acc-body p { margin:0; }
+
+    .skill-cloud {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:6px;
+    }
+
+    .skill-tag {
+      padding:10px 14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(134,172,255,.08), rgba(255,255,255,.02));
+      color:#dce7f9;
+      font-size:14px;
+      font-weight:500;
+      line-height:1.35;
+      white-space:normal;
+      transition:transform .2s ease, border-color .2s ease;
+    }
+
+    .skill-tag:hover {
+      transform:translateY(-2px);
+      border-color:rgba(134,172,255,.32);
+    }
+
+    .tools-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin-top:4px;
+    }
+
+    .tool-tile {
+      min-height:112px;
+      border-radius:20px;
+      border:1px solid var(--line);
+      background: var(--bg);
+      background-image:
+        radial-gradient(circle at 86% 18%, rgba(134,172,255,.18), transparent 30%),
+        linear-gradient(180deg, rgba(134,172,255,.08), rgba(255,255,255,.02));
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      transition:transform .25s ease, border-color .25s ease;
+    }
+
+    .tool-tile:hover {
+      transform:translateY(-3px);
+      border-color:rgba(134,172,255,.34);
+    }
+
+    .tool-name {
+      font-size:17px;
+      font-weight:700;
+      letter-spacing:-.03em;
+    }
+
+    .tool-note {
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .lang-ring {
+      --p:72;
+      width:86px;
+      height:86px;
+      border-radius:50%;
+      background: var(--bg);
+      background-image:
+        radial-gradient(closest-side, rgba(7,17,31,1) 73%, transparent 74% 100%),
+        conic-gradient(#8bb1ff calc(var(--p) * 1%), rgba(255,255,255,.08) 0);
+      display:grid;
+      place-items:center;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);
+      flex-shrink:0;
+    }
+
+    .lang-ring span {
+      font-size:17px;
+      font-weight:800;
+      color:#f2f6fd;
+    }
+
+    .lang-ring.mini {
+      width:64px;
+      height:64px;
+    }
+
+    .lang-ring.mini span {
+      font-size:15px;
+    }
+
+    .lang-name {
+      font-size:17px;
+      font-weight:700;
+    }
+
+    .lang-sub {
+      font-size:14px;
+      color:var(--muted);
+      text-align:left;
+    }
+
+
+        .skills-layout {
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      grid-template-areas:
+        "master tools"
+        "languages languages";
+      gap:14px;
+      margin-top:16px;
+      align-items:start;
+    }
+
+    .skills-master { grid-area: master; }
+    .skills-tools { grid-area: tools; }
+    .skills-languages { grid-area: languages; }
+
+    .skills-master {
+      display:grid;
+      gap:14px;
+    }
+
+    .skills-subhead {
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--accent);
+      opacity:.95;
+    }
+
+    .skills-divider {
+      height:1px;
+      background:var(--line);
+      margin:2px 0;
+    }
+
+    .tool-tile.wide {
+      grid-column:1 / -1;
+      min-height:96px;
+    }
+
+    .quality-grid {
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:12px;
+      margin-top:2px;
+    }
+
+    .quality-item {
+      padding:14px 16px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(134,172,255,.08), rgba(255,255,255,.02));
+      color:#dce7f9;
+      font-size:15px;
+      font-weight:500;
+      line-height:1.35;
+    }
+
+        .languages-row {
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:12px;
+      margin-top:10px;
+    }
+
+    .language-compact {
+      display:grid;
+      grid-template-columns:70px 1fr;
+      gap:14px;
+      align-items:center;
+      padding:14px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+    }
+
+
+    .skills-columns {
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:14px;
+      margin-top:16px;
+      align-items:start;
+    }
+
+    .skills-col {
+      display:grid;
+      gap:14px;
+      align-content:start;
+    }
+
+    .languages-stack {
+      display:grid;
+      gap:12px;
+      margin-top:10px;
+    }
+
+    .work-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .job {
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+      transition:transform .25s ease, border-color .25s ease;
+    }
+
+    .job:hover {
+      transform:translateY(-3px);
+      border-color:rgba(134,172,255,.32);
+    }
+
+    .job-top {
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      align-items:start;
+      margin-bottom:10px;
+    }
+
+    .job-title {
+      margin:0;
+      font-size:22px;
+      line-height:1.1;
+      letter-spacing:-.03em;
+      font-weight:700;
+    }
+
+    .job-period {
+      padding-top:5px;
+      color:var(--accent);
+      font-size:13px;
+      font-weight:700;
+      white-space:nowrap;
+    }
+
+    .job-place {
+      margin-bottom:10px;
+      color:#d6e2f5;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .job p {
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .education-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .edu-card {
+      position:relative;
+      overflow:hidden;
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:22px;
+      box-shadow:var(--shadow);
+      min-height:196px;
+      transition:transform .25s ease, border-color .25s ease;
+    }
+
+    .edu-card:hover {
+      transform:translateY(-3px);
+      border-color:rgba(134,172,255,.32);
+    }
+
+    .edu-logo {
+      position:absolute;
+      right:18px;
+      bottom:18px;
+      width:92px;
+      height:92px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      opacity:.13;
+      filter:brightness(0) invert(1);
+      pointer-events:none;
+    }
+
+    .edu-logo img,
+    .edu-logo svg {
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+    }
+
+    .edu-logo.idosvg {
+      width:80px;
+      height:80px;
+      opacity:.14;
+    }
+
+    .edu-logo.idosvg svg {
+      transform:scale(1);
+      transform-origin:center;
+    }
+
+    .edu-type {
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      border:1px solid var(--line);
+      color:var(--accent);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+
+    .edu-name {
+      font-size:20px;
+      line-height:1.18;
+      letter-spacing:-.03em;
+      font-weight:700;
+      max-width:78%;
+      margin-bottom:8px;
+    }
+
+    .edu-meta {
+      color:var(--muted);
+      font-size:14px;
+      max-width:78%;
+    }
+
+    .contact-grid {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .contact-card {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:18px;
+      border-radius:22px;
+      background:var(--panel-strong);
+      border:1px solid var(--line-strong);
+      box-shadow:var(--shadow);
+      transition:transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+
+    .contact-card:hover {
+      transform:translateY(-3px);
+      border-color:rgba(134,172,255,.38);
+      background:rgba(17,31,54,.98);
+    }
+
+    .contact-icon {
+      width:48px;
+      height:48px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(180deg, rgba(134,172,255,.16), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      flex-shrink:0;
+    }
+
+    .contact-icon svg {
+      width:20px;
+      height:20px;
+      fill:#fff;
+    }
+
+    .contact-label {
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:2px;
+    }
+
+    .contact-value {
+      font-size:16px;
+      font-weight:700;
+      word-break:break-word;
+    }
+
+    footer {
+      padding:0 0 34px;
+      color:#8291a8;
+      font-size:13px;
+    }
+
+    .reveal {
+      opacity:0;
+      transform:translateY(22px);
+      transition:opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.is-visible {
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    
+    .skills-marquee-card {
+      padding: 14px 0;
+      overflow: hidden;
+    }
+
+    .skills-marquee {
+      position: relative;
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+
+    .skills-track {
+      display: flex;
+      width: max-content;
+      gap: 10px;
+      animation: skillsTicker 34s linear infinite;
+      padding: 4px 0;
+    }
+
+    .skills-marquee:hover .skills-track {
+      animation-play-state: paused;
+    }
+
+    .skills-pill {
+      flex: 0 0 auto;
+      padding: 11px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(134,172,255,.10), rgba(255,255,255,.03));
+      color: #e4ecfa;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.2;
+      white-space: nowrap;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+    }
+
+    @keyframes skillsTicker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .skills-split-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
+      gap: 14px;
+      margin-top: 14px;
+      align-items: stretch;
+    }
+
+    .skills-panel {
+      padding: 20px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      min-height: 350px;
+    }
+
+    .skills-panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .skills-panel-title {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.08;
+      letter-spacing: -.04em;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .skills-panel-badge {
+      display:none !important;
+      
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      height: 38px;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(134,172,255,.10);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .skills-languages-grid {
+      display: grid;
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      flex: 1;
+    }
+
+    .skills-tools-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      flex: 1;
+    }
+
+    .skills-card {
+      min-height: 0;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      background-image:
+        radial-gradient(circle at 86% 18%, rgba(134,172,255,.14), transparent 30%),
+        linear-gradient(180deg, rgba(134,172,255,.08), rgba(255,255,255,.02));
+      padding: 18px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+
+    .skills-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(134,172,255,.34);
+      background: var(--bg);
+      background-image:
+        radial-gradient(circle at 86% 18%, rgba(134,172,255,.18), transparent 30%),
+        rgba(18,31,55,.84);
+    }
+
+    .skills-card.language-card {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 16px;
+      align-items: center;
+      height: 100%;
+    }
+
+    .skills-card.language-card .lang-ring.mini {
+      width: 72px;
+      height: 72px;
+    }
+
+    .skills-card-top {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .skills-item-label {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(134,172,255,.10);
+      border: 1px solid var(--line);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .skills-item-title {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -.03em;
+      color: #eef3fb;
+    }
+
+    .skills-item-note {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    @media (max-width: 1020px) {
+      .skills-split-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-panel {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .skills-marquee-card {
+        padding: 12px 0;
+      }
+
+      .skills-track {
+        gap: 8px;
+        animation-duration: 28s;
+      }
+
+      .skills-pill {
+        padding: 10px 14px;
+        font-size: 13px;
+      }
+
+      .skills-panel {
+        padding: 16px;
+      }
+
+      .skills-panel-head {
+        margin-bottom: 12px;
+      }
+
+      .skills-panel-title {
+        font-size: 22px;
+      }
+
+      .skills-tools-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+      }
+
+      .skills-languages-grid {
+        grid-template-rows: none;
+      }
+
+      .skills-card.language-card {
+        grid-template-columns: 64px 1fr;
+        gap: 12px;
+      }
+
+      .skills-card.language-card .lang-ring.mini {
+        width: 64px;
+        height: 64px;
+      }
+    }
+@media (max-width:1020px) {
+      .hero-grid,
+      .approach-grid,
+      .practice-grid,
+      .work-grid,
+      .education-grid,
+      .contact-grid {
+        grid-template-columns:1fr;
+      }
+
+      .skills-columns {
+        grid-template-columns:1fr;
+      }
+
+      .skills-compact {
+        grid-template-columns:1fr;
+      }
+
+      .skills-main-card {
+        height: auto;
+      }
+
+      .hero {
+        padding: 14px 0 30px;
+      }
+
+      .photo-panel {
+        order:-1;
+        min-height:400px;
+      }
+
+      .photo-wrap {
+        width:min(100%, 380px);
+      }
+
+      .tools-grid {
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:640px) {
+      .wrap,
+      .nav-inner {
+        width:min(var(--max), calc(100% - 24px));
+      }
+
+      .nav-inner {
+        min-height: 74px;
+        gap: 18px;
+      }
+
+      .brand {
+        width:58px;
+        height:58px;
+        min-width:58px;
+        font-size:21px;
+      }
+
+      .nav-links {
+        gap:16px;
+      }
+
+      .nav-links a {
+        font-size:15px;
+      }
+
+      h1 {
+        font-size: clamp(42px, 13vw, 56px);
+      }
+
+      .hero-title {
+        font-size: 20px;
+      }
+
+      .intro {
+        font-size: 16px;
+      }
+
+      .section {
+        padding: 4px 0 46px;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+
+      .section-head {
+        margin-bottom: 12px;
+      }
+
+      .contact-pill {
+        width:100%;
+        justify-content:flex-start;
+      }
+
+      .accordion summary {
+        grid-template-columns:48px minmax(0,1fr) 24px;
+        padding:16px;
+      }
+
+      .num {
+        width:44px;
+        height:44px;
+        border-radius:14px;
+      }
+
+      .acc-title {
+        font-size: 18px;
+      }
+
+      .acc-body {
+        padding:0 16px 16px;
+      }
+
+      .photo-panel {
+        min-height:310px;
+      }
+
+      .photo-wrap {
+        width:min(100%, 320px);
+      }
+
+      .edu-name,
+      .edu-meta {
+        max-width:100%;
+      }
+
+      .tools-grid {
+        grid-template-columns:1fr;
+      }
+    }
+  
+    h1, h2 {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      letter-spacing: -0.01em;
+    }
+    h1 { font-weight: 700; font-style: normal; }
+    h2 { font-weight: 500; }
+    .hero-title { font-family: "IBM Plex Sans", system-ui, sans-serif; }
+
+    
+    #scroll-progress {
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      height: 2px; width: 0%;
+      background: linear-gradient(90deg, #86acff, #c5d9ff);
+      transition: width 0.1s linear;
+      pointer-events: none;
+    }
+
+    
+    .nav-pdf-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 5px 14px; border-radius: 6px;
+      background: rgba(134,172,255,.12);
+      border: 1px solid rgba(134,172,255,.28);
+      color: #86acff !important; font-size: 13px; font-weight: 500;
+      text-decoration: none; transition: all .2s; white-space: nowrap;
+    }
+    .nav-pdf-btn:hover { background: rgba(134,172,255,.22); color: #c5d9ff !important; }
+
+    
+    .accordion-custom { border-radius: 16px; border: 1px solid var(--line); overflow: hidden; }
+    .accordion-custom .acc-trigger {
+      display: grid; grid-template-columns: 40px 1fr 32px;
+      align-items: center; gap: 16px;
+      padding: 20px 20px 20px 20px;
+      cursor: pointer; user-select: none; background: var(--panel);
+      transition: background .2s;
+    }
+    .accordion-custom .acc-trigger:hover { background: rgba(255,255,255,.04); }
+    .accordion-custom.open .acc-trigger { background: rgba(134,172,255,.06); }
+    .accordion-custom .acc-num { font-size: 18px; font-weight: 700; color: rgba(134,172,255,.3); line-height:1; }
+    .accordion-custom .acc-title-text { font-size: 16px; font-weight: 600; color: #dce7f9; line-height: 1.35; }
+    .accordion-custom .acc-icon-btn {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 1px solid rgba(134,172,255,.25);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(134,172,255,.6); font-size: 18px; font-weight: 300;
+      transition: all .3s; flex-shrink: 0;
+    }
+    .accordion-custom.open .acc-icon-btn {
+      transform: rotate(45deg);
+      border-color: rgba(134,172,255,.5);
+      color: #86acff;
+    }
+    .accordion-custom .acc-body-wrap {
+      display: grid; grid-template-rows: 0fr;
+      transition: grid-template-rows .38s cubic-bezier(.4,0,.2,1);
+      background: rgba(134,172,255,.03);
+    }
+    .accordion-custom.open .acc-body-wrap { grid-template-rows: 1fr; }
+    .accordion-custom .acc-body-inner { overflow: hidden; }
+    .accordion-custom .acc-body-content {
+      padding: 0 20px 20px 76px;
+      font-size: 15px; color: rgba(200,220,248,.7); line-height: 1.75;
+    }
+
+    
+    /* Alternating section backgrounds for rhythm */
+    #approach  { background: var(--bg); }
+    #practice  { background: var(--bg2); }
+    #skills    { background: var(--bg); }
+    #experience{ background: var(--bg2); }
+    #education { background: var(--bg3); }
+    #contact   { background: var(--bg); }
+    
+    /* Subtle top border accent on alt sections */
+    #practice, #experience {
+      border-top: 1px solid rgba(134,172,255,.07);
+      border-bottom: 1px solid rgba(134,172,255,.07);
+    }
+    #education {
+      border-top: 1px solid rgba(134,172,255,.07);
+    }
+
+    </style>
+</head>
+<body>
+  <div id="scroll-progress"></div>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">RS</a>
+      <nav class="nav-links">
+        <a href="#practice">Практика</a>
+        <a href="#skills">Навыки</a>
+        <a href="#experience">Опыт</a>
+        <a href="#education">Образование</a>
+        <a href="#contact">Контакты</a>
+        <a href="./Resume.pdf" download class="nav-pdf-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg>
+        Скачать PDF
+      </a>
+    </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    
+<section class="hero">
+      <canvas id="particles"></canvas>
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <h1>Руслан Салманов</h1>
+
+          <div class="hero-head">
+            <div class="hero-title">Юрист в области интеллектуальной собственности</div>
+          </div>
+
+          <p class="intro">
+            Работаю юристом в IT сфере и хочу развиваться в этом направлении.
+            Мне интересно не только юридическое сопровождение, но и то, как устроены
+            <strong>продукты, компании и рабочие процессы</strong>. Уверен, что современному юристу цифровые компетенции нужны так же, как и знание закона.
+          </p>
+
+          <div class="hero-meta">
+            <div class="meta-chip">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.13 5.48 11.58 6.1 12.3a1.2 1.2 0 0 0 1.8 0C13.52 20.58 19 14.13 19 9a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
+              <span>Москва</span>
+            </div>
+            <div class="meta-chip">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-6l1.5 2.5a1 1 0 0 1-.86 1.5H9.36a1 1 0 0 1-.86-1.5L10 18H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 2v9h16V7H4Z"/></svg>
+              <span>Удалённо / гибрид</span>
+            </div>
+          </div>
+
+          <div class="hero-links">
+            <a class="contact-pill" href="mailto:montepierro@ya.ru">
+              <svg viewBox="0 0 24 24"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 18.5v-13Zm2.2.5 6.8 5.23L18.8 6h-13.6Zm13.8 1.52-6.38 4.9a1 1 0 0 1-1.22 0L5 7.52V18a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5V7.52Z"/></svg>
+              <span>montepierro@ya.ru</span>
+            </a>
+            <a class="contact-pill" href="https://t.me/jurus_ip" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M21.44 4.62a1.7 1.7 0 0 0-1.76-.28L3.8 10.56c-1.07.43-1 1.96.1 2.29l4.02 1.22 1.55 4.93c.31.98 1.56 1.21 2.2.4l2.26-2.87 4.44 3.27c.82.61 1.98.15 2.17-.85l2.76-12.93c.16-.76-.17-1.54-.86-1.89ZM9.2 13.6l8.35-5.12c.3-.18.62.22.37.45l-6.9 6.26a1 1 0 0 0-.3.52l-.54 2.3-.98-3.1Zm1.37-1.03-.97 4.1-.93-2.95-2.4-.73 11.72-4.67-7.42 4.25Z"/></svg>
+              <span>@jurus_ip</span>
+            </a>
+            <a class="contact-pill" href="tel:+79882187920">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.32.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.4 21 3 13.6 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.56 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2Z"/></svg>
+              <span>+7 (988) 218-79-20</span>
+            </a>
+          </div>
+
+          <a class="scroll-link" href="#practice">Смотреть направления работы</a>
+        </div>
+
+        <div class="photo-panel reveal">
+          <div class="photo-wrap">
+            <img class="photo" alt="Руслан Салманов" src="./photo.png" />
+          </div>
+          <div class="photo-stat reveal">
+            <div class="photo-stat-num">1+</div>
+            <div class="photo-stat-text">год опыта работы</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="approach">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title">Как я работаю</h2>
+          <p class="section-text">Стараюсь добросовестно выполнять работу, даже когда задача сложная. Люблю разбираться в новом, искать рабочие решения, быстро исправлять ошибки и принимать решения после анализа.</p>
+        </div>
+
+        <div class="approach-grid">
+          <div class="card reveal">
+            <h3>Как работаю</h3>
+            <p>Внимателен к деталям, дисциплинирован, спокойно работаю с большим объёмом информации, открыт к диалогу и стараюсь доводить задачу до результата.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Что важно</h3>
+            <p>Самообразование в профессии, аналитическое мышление, аккуратность в документах, деловая переписка и понимание практической стороны задачи.</p>
+          </div>
+          <div class="card quote-card reveal">
+            <p>Работаю с ощущением причастности к результату, а не просто выполняю список поручений.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="practice">
+      <div class="wrap">
+        <div class="section-head reveal">          <h2 class="section-title">Направления практики</h2>
+        </div>
+
+        <div class="practice-grid">
+          <div class="accordion-custom reveal" onclick="toggleAcc(this)">
+            <div class="acc-trigger">
+              <div class="acc-num">01</div>
+              <div class="acc-title-text">Регистрация товарных знаков в Роспатенте</div>
+              <div class="acc-icon-btn">+</div>
+            </div>
+            <div class="acc-body-wrap">
+              <div class="acc-body-inner">
+                <div class="acc-body-content">Сопровождал регистрацию товарных знаков: готовил документы, помогал с подачей заявок, отслеживал ход процедуры и сопровождал клиентов по рабочим вопросам до получения результата.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-custom reveal" onclick="toggleAcc(this)">
+            <div class="acc-trigger">
+              <div class="acc-num">02</div>
+              <div class="acc-title-text">Регистрация программ для ЭВМ в Роспатенте</div>
+              <div class="acc-icon-btn">+</div>
+            </div>
+            <div class="acc-body-wrap">
+              <div class="acc-body-inner">
+                <div class="acc-body-content">Работал с регистрацией программ для ЭВМ в Роспатенте: готовил документы, проверял состав материалов и сопровождал клиентов по вопросам подачи и оформления.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-custom reveal" onclick="toggleAcc(this)">
+            <div class="acc-trigger">
+              <div class="acc-num">03</div>
+              <div class="acc-title-text">Реестр отечественного ПО и аккредитация IT-компаний</div>
+              <div class="acc-icon-btn">+</div>
+            </div>
+            <div class="acc-body-wrap">
+              <div class="acc-body-inner">
+                <div class="acc-body-content">Сопровождал включение ПО в реестр Минцифры: готовил пакет документов, работал с замечаниями, отказами и перепиской по заявкам. Также помогал в подготовке документации для аккредитации IT-компаний и проверке соответствия требованиям Минцифры.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-custom reveal" onclick="toggleAcc(this)">
+            <div class="acc-trigger">
+              <div class="acc-num">04</div>
+              <div class="acc-title-text">Персональные данные и РКН</div>
+              <div class="acc-icon-btn">+</div>
+            </div>
+            <div class="acc-body-wrap">
+              <div class="acc-body-inner">
+                <div class="acc-body-content">Регистрировал операторов персональных данных в Роскомнадзоре, редактировал политику обработки персональных данных, готовил сопутствующие документы и консультировал по практическим вопросам применения 152-ФЗ, связанным с обработкой данных и документальным оформлением.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-custom reveal" onclick="toggleAcc(this)">
+            <div class="acc-trigger">
+              <div class="acc-num">05</div>
+              <div class="acc-title-text">Рекламное законодательство</div>
+              <div class="acc-icon-btn">+</div>
+            </div>
+            <div class="acc-body-wrap">
+              <div class="acc-body-inner">
+                <div class="acc-body-content">Проверял рекламные материалы на соответствие ФЗ-38, анализировал допустимость баннеров и лендингов до публикации, а по спорным ситуациям готовил письменные заключения.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-custom reveal" onclick="toggleAcc(this)">
+            <div class="acc-trigger">
+              <div class="acc-num">06</div>
+              <div class="acc-title-text">Договоры, внутренние справки и запросы</div>
+              <div class="acc-icon-btn">+</div>
+            </div>
+            <div class="acc-body-wrap">
+              <div class="acc-body-inner">
+                <div class="acc-body-content">Составлял и редактировал лицензионные договоры, NDA, договоры коммерческой концессии, корпоративные документы, внутренние правовые справки, запросы в государственные органы и другие рабочие юридические документы.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-custom reveal" onclick="toggleAcc(this)">
+            <div class="acc-trigger">
+              <div class="acc-num">07</div>
+              <div class="acc-title-text">Исполнительное производство и претензионная работа</div>
+              <div class="acc-icon-btn">+</div>
+            </div>
+            <div class="acc-body-wrap">
+              <div class="acc-body-inner">
+                <div class="acc-body-content">Сопровождал исполнительные производства в интересах взыскателя, готовил досудебные претензии и помогал в подготовке отдельных процессуальных документов по таким делам.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-custom reveal" onclick="toggleAcc(this)">
+            <div class="acc-trigger">
+              <div class="acc-num">08</div>
+              <div class="acc-title-text">Судебная практика и правовые исследования</div>
+              <div class="acc-icon-btn">+</div>
+            </div>
+            <div class="acc-body-wrap">
+              <div class="acc-body-inner">
+                <div class="acc-body-content">Исследовал правовую информацию в онлайн-базах, анализировал судебную практику, НПА и правовые позиции, готовил юридические заключения и подборки для решения конкретных рабочих вопросов.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+
+
+
+
+
+
+<section class="section" id="skills">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title">Навыки, инструменты и языки</h2>
+        </div>
+
+        <div class="card skills-marquee-card reveal">
+          <div class="skills-marquee" aria-label="Ключевые навыки">
+            <div class="skills-track">
+              <div class="skills-pill">Внимание к деталям</div>
+              <div class="skills-pill">Аналитические способности</div>
+              <div class="skills-pill">Ответственность и дисциплина</div>
+              <div class="skills-pill">Структурный подход к информации и документам</div>
+              <div class="skills-pill">Анализ судебной практики</div>
+              <div class="skills-pill">Работа с НПА и правовыми позициями</div>
+              <div class="skills-pill">Исследование правовой информации</div>
+              <div class="skills-pill">Юридические заключения</div>
+              <div class="skills-pill">Внутренние правовые справки</div>
+              <div class="skills-pill">Деловая переписка</div>
+              <div class="skills-pill">Основы гражданского законодательства</div>
+              <div class="skills-pill">Работа с большим объёмом информации</div>
+
+              <div class="skills-pill" aria-hidden="true">Внимание к деталям</div>
+              <div class="skills-pill" aria-hidden="true">Аналитические способности</div>
+              <div class="skills-pill" aria-hidden="true">Ответственность и дисциплина</div>
+              <div class="skills-pill" aria-hidden="true">Структурный подход к информации и документам</div>
+              <div class="skills-pill" aria-hidden="true">Анализ судебной практики</div>
+              <div class="skills-pill" aria-hidden="true">Работа с НПА и правовыми позициями</div>
+              <div class="skills-pill" aria-hidden="true">Исследование правовой информации</div>
+              <div class="skills-pill" aria-hidden="true">Юридические заключения</div>
+              <div class="skills-pill" aria-hidden="true">Внутренние правовые справки</div>
+              <div class="skills-pill" aria-hidden="true">Деловая переписка</div>
+              <div class="skills-pill" aria-hidden="true">Основы гражданского законодательства</div>
+              <div class="skills-pill" aria-hidden="true">Работа с большим объёмом информации</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-split-grid">
+          <div class="skills-panel reveal">
+            <div class="skills-panel-head">
+              <h3 class="skills-panel-title">Языки</h3>
+                          </div>
+
+            <div class="skills-languages-grid">
+              <div class="skills-card language-card">
+                <div class="lang-ring mini" style="--p:72"><span>B2</span></div>
+                <div>
+                  <div class="skills-item-label">Язык</div>
+                  <div class="skills-item-title">Английский</div>
+                  <div class="skills-item-note">уверенное чтение и работа с материалами</div>
+                </div>
+              </div>
+
+              <div class="skills-card language-card">
+                <div class="lang-ring mini" style="--p:34"><span>A2</span></div>
+                <div>
+                  <div class="skills-item-label">Язык</div>
+                  <div class="skills-item-title">Немецкий</div>
+                  <div class="skills-item-note">базовый уровень</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skills-panel reveal">
+            <div class="skills-panel-head">
+              <h3 class="skills-panel-title">Инструменты</h3>
+                          </div>
+
+            <div class="skills-tools-grid">
+              <div class="skills-card">
+                <div class="skills-card-top">
+                  <div class="skills-item-label">Инструмент</div>
+                  <div class="skills-item-title">Excel</div>
+                </div>
+                <div class="skills-item-note">таблицы, структурирование данных и рабочая аналитика</div>
+              </div>
+
+              <div class="skills-card">
+                <div class="skills-card-top">
+                  <div class="skills-item-label">Инструмент</div>
+                  <div class="skills-item-title">AI-инструменты</div>
+                </div>
+                <div class="skills-item-note">поиск формулировок, структурирование информации и поддержка в повседневных задачах</div>
+              </div>
+
+              <div class="skills-card">
+                <div class="skills-card-top">
+                  <div class="skills-item-label">Инструмент</div>
+                  <div class="skills-item-title">Справочно-правовые системы</div>
+                </div>
+                <div class="skills-item-note">КонсультантПлюс, нормы, судебная практика и правовые позиции</div>
+              </div>
+
+              <div class="skills-card">
+                <div class="skills-card-top">
+                  <div class="skills-item-label">Инструмент</div>
+                  <div class="skills-item-title">Системы автоматизации юридической деятельности</div>
+                </div>
+                <div class="skills-item-note">цифровая рабочая среда и организация юридических процессов</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+    <section class="section" id="experience">
+      <div class="wrap">
+        <div class="section-head reveal">          <h2 class="section-title">Опыт работы</h2>
+        </div>
+
+        <div class="work-grid">
+          <article class="job reveal">
+            <div class="job-top">
+              <h3 class="job-title">Юрист</h3>
+              <div class="job-period">Январь 2025 — Май 2026</div>
+            </div>
+            <div class="job-place">KukuevGroup</div>
+            <p>Основная практика была связана с интеллектуальной собственностью, реестром ПО, персональными данными, рекламным законодательством, договорной работой, правовыми исследованиями и задачами по общей гражданско-правовой практике.</p>
+          </article>
+
+          <article class="job reveal">
+            <div class="job-top">
+              <h3 class="job-title">Аналитик</h3>
+              <div class="job-period">Сентябрь — Октябрь 2025</div>
+            </div>
+            <div class="job-place">Центр аналитики онлайн-проектов НИУ ВШЭ</div>
+            <p>Работал с Excel, сбором данных и аналитическими таблицами, что усилило навыки системного мышления и аккуратной работы с большими объёмами информации.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="wrap">
+        <div class="section-head reveal">          <h2 class="section-title">Образование</h2>
+        </div>
+
+        <div class="education-grid">
+          <article class="edu-card reveal">
+            <div class="edu-type">Основное</div>
+            <div class="edu-name">Всероссийский государственный университет юстиции</div>
+            <div class="edu-meta">Бакалавриат · Юриспруденция · Гражданско-правовая специализация · Выпуск 2027</div>
+            <div class="edu-logo"><img alt="Эмблема ВГУЮ" src="./vguyu_logo.png"></div>
+          </article>
+
+          <article class="edu-card reveal">
+            <div class="edu-type">Дополнительное</div>
+            <div class="edu-name">Аналитик данных — ИДО ТГУ</div>
+            <div class="edu-meta">Дополнительное профессиональное образование · Ноябрь 2025 — Июль 2026</div>
+            <div class="edu-logo idosvg"><svg width="44" height="50" viewBox="0 0 44 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_961_2339" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="44" height="50">
+<path d="M43.3984 0H0V49.2597H43.3984V0Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_961_2339)">
+<path d="M29.4035 29.1566C32.1092 29.1566 34.0782 27.2351 34.0782 24.5529C34.0782 21.8708 32.1092 19.9492 29.4035 19.9492C26.7112 19.9492 24.7422 21.8708 24.7422 24.5529C24.7422 27.2351 26.7112 29.1566 29.4035 29.1566ZM29.4035 27.4753C27.756 27.4753 26.6978 26.2077 26.6978 24.5529C26.6978 22.8849 27.756 21.6306 29.4035 21.6306C31.0511 21.6306 32.1226 22.8849 32.1226 24.5529C32.1226 26.2077 31.0511 27.4753 29.4035 27.4753Z" fill="#0078D4"/>
+<path d="M19.2963 29.0138C22.0957 29.0138 24.0379 27.2523 24.0379 24.5701C24.0379 21.888 22.0957 20.1133 19.2963 20.1133H15.7734V29.0138H19.2963ZM19.2963 27.3457H17.6755V21.7813H19.2963C21.1313 21.7813 22.0957 22.9955 22.0957 24.5701C22.0957 26.0781 21.0643 27.3457 19.2963 27.3457Z" fill="#0078D4"/>
+<path d="M11.1598 29.0606V20.1367H9.23438V29.0606H11.1598Z" fill="#0078D4"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M0.0781398 7.84831V3.52502C0.0781398 3.45154 0.119603 3.27359 0.285457 3.14967C0.492773 2.99477 1.58119 2.47844 2.98058 2.47844H5.57204C5.77936 2.44401 6.4635 2.4681 7.54155 2.83987C8.15215 3.05044 8.4258 3.13842 8.52626 3.16574V3.82088C8.52626 3.87252 8.58846 3.97578 8.83728 3.97578H16.197C16.2661 3.97578 16.4147 3.9448 16.4562 3.82088V3.35618C16.4562 3.32175 16.4769 3.23226 16.5599 3.14965C16.6635 3.04638 17.2337 2.63331 18.1147 2.37515C18.8196 2.1686 19.3068 2.11698 19.4622 2.11698H20.8616C20.9654 2.08255 21.2141 1.94142 21.38 1.65227C21.3972 1.61785 21.4422 1.48705 21.4836 1.2392V0.516335C21.4836 0.227187 21.6128 0.0516336 21.6646 0C21.7165 0.0516336 21.8456 0.227187 21.8456 0.516335V1.2392C21.8871 1.48705 21.932 1.61785 21.9493 1.65227C22.1151 1.94142 22.3639 2.08255 22.4676 2.11698H23.867C24.0225 2.11698 24.5096 2.1686 25.2145 2.37515C26.0956 2.63331 26.6657 3.04638 26.7694 3.14965C26.8524 3.23226 26.8731 3.32175 26.8731 3.35618V3.82088C26.9146 3.9448 27.0631 3.97578 27.1323 3.97578H34.492C34.7408 3.97578 34.8029 3.87252 34.8029 3.82088V3.16574C34.9034 3.13842 35.177 3.05044 35.7878 2.83987C36.8657 2.4681 37.5499 2.44401 37.7572 2.47844H40.3487C41.748 2.47844 42.8365 2.99477 43.0438 3.14967C43.2097 3.27359 43.2511 3.45154 43.2511 3.52502V7.84831C43.3202 12.5469 43.4066 23.2557 43.1993 28.5017C42.992 33.7477 41.0052 37.8129 40.0377 39.1898C34.3987 47.823 25.6037 49.3101 21.6646 49.2583C17.7256 49.3101 8.93058 47.823 3.29155 39.1898C2.32407 37.8129 0.337286 33.7477 0.129969 28.5017C-0.0773479 23.2557 0.00903419 12.5469 0.0781398 7.84831ZM8.52626 3.14965V3.16574C8.60325 3.18666 8.57874 3.17204 8.52626 3.14965ZM3.21355 7.24431C3.21355 6.72223 3.63838 6.29901 4.16243 6.29901H39.2707C39.7948 6.29901 40.2196 6.72223 40.2196 7.24431V27.6236V27.6753C40.1917 37.8319 31.9182 46.0568 21.7166 46.0568C11.515 46.0568 3.24158 37.8319 3.21362 27.6753L3.21355 27.6236V7.24431Z" fill="#0078D4"/>
+</g>
+</svg>
+</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="section-head reveal">          <h2 class="section-title">Связаться со мной</h2>
+        </div>
+
+        <div class="contact-grid">
+          <a class="contact-card reveal" href="mailto:montepierro@ya.ru">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 18.5v-13Zm2.2.5 6.8 5.23L18.8 6h-13.6Zm13.8 1.52-6.38 4.9a1 1 0 0 1-1.22 0L5 7.52V18a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5V7.52Z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">montepierro@ya.ru</div>
+            </div>
+          </a>
+
+          <a class="contact-card reveal" href="https://t.me/jurus_ip" target="_blank" rel="noopener noreferrer">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M21.44 4.62a1.7 1.7 0 0 0-1.76-.28L3.8 10.56c-1.07.43-1 1.96.1 2.29l4.02 1.22 1.55 4.93c.31.98 1.56 1.21 2.2.4l2.26-2.87 4.44 3.27c.82.61 1.98.15 2.17-.85l2.76-12.93c.16-.76-.17-1.54-.86-1.89ZM9.2 13.6l8.35-5.12c.3-.18.62.22.37.45l-6.9 6.26a1 1 0 0 0-.3.52l-.54 2.3-.98-3.1Zm1.37-1.03-.97 4.1-.93-2.95-2.4-.73 11.72-4.67-7.42 4.25Z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Telegram</div>
+              <div class="contact-value">@jurus_ip</div>
+            </div>
+          </a>
+
+          <a class="contact-card reveal" href="tel:+79882187920">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.32.56 3.57.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.4 21 3 13.6 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.56 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2Z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Телефон</div>
+              <div class="contact-value">+7 (988) 218-79-20</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© Руслан Салманов</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    document.querySelectorAll('.accordion').forEach((item) => {
+      item.addEventListener('toggle', () => {
+        if (!item.open) return;
+        document.querySelectorAll('.accordion').forEach((other) => {
+          if (other !== item) other.removeAttribute('open');
+        });
+      });
+    });
+
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let w = 0, h = 0, particles = [];
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function resizeCanvas() {
+      const hero = document.querySelector('.hero');
+      w = canvas.width = hero.offsetWidth * Math.min(window.devicePixelRatio || 1, 2);
+      h = canvas.height = hero.offsetHeight * Math.min(window.devicePixelRatio || 1, 2);
+      canvas.style.width = hero.offsetWidth + 'px';
+      canvas.style.height = hero.offsetHeight + 'px';
+      initParticles();
+    }
+
+    function initParticles() {
+      const count = Math.max(34, Math.floor((w / 1200) * 48));
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.18,
+        vy: (Math.random() - 0.5) * 0.18,
+        r: Math.random() * 2 + 0.8,
+        a: Math.random() * 0.45 + 0.15
+      }));
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, w, h);
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < -20) p.x = w + 20;
+        if (p.x > w + 20) p.x = -20;
+        if (p.y < -20) p.y = h + 20;
+        if (p.y > h + 20) p.y = -20;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(134, 172, 255, ${p.a})`;
+        ctx.fill();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const q = particles[j];
+          const dx = p.x - q.x;
+          const dy = p.y - q.y;
+          const d = Math.hypot(dx, dy);
+          if (d < 130) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.strokeStyle = `rgba(134, 172, 255, ${0.12 * (1 - d / 130)})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+      if (!prefersReducedMotion) requestAnimationFrame(drawParticles);
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    if (!prefersReducedMotion) drawParticles();
+    else drawParticles();
+  </script>
+
+<script>
+
+  // Custom accordion
+  function toggleAcc(el) {
+    const isOpen = el.classList.contains('open');
+    document.querySelectorAll('.accordion-custom').forEach(a => a.classList.remove('open'));
+    if (!isOpen) el.classList.add('open');
+  }
+
+  // Scroll progress
+  window.addEventListener('scroll', () => {
+    const el = document.getElementById('scroll-progress');
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    el.style.width = pct + '%';
+  }, { passive: true });
+
+</script>
+</body>
+</html>
