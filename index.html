@@ -719,7 +719,6 @@
       grid-template-columns:repeat(3,minmax(0,1fr));
       gap:14px;
       margin-top:16px;
-      align-items:start;
     }
 
     .job {
@@ -737,10 +736,9 @@
     }
 
     .job-top {
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:space-between;
-      gap:14px;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:8px;
       align-items:start;
       margin-bottom:10px;
     }
@@ -759,6 +757,10 @@
       font-size:13px;
       font-weight:700;
       white-space:nowrap;
+    }
+
+    .job-current .job-period {
+      font-size:12px;
     }
 
     .job-place {
@@ -1737,7 +1739,7 @@
         <div class="work-grid">
           <article class="job job-current reveal">
             <div class="job-top">
-              <h3 class="job-title">Юрист по персональным данным</h3>
+              <h3 class="job-title">Юрист по ПДн</h3>
               <div class="job-period">Июнь 2026 — настоящее время</div>
             </div>
             <div class="job-place">Jenty Spedition</div>
