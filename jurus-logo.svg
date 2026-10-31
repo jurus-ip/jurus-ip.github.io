@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="188" height="94" viewBox="0 0 188 94" role="img" aria-labelledby="title">
+  <title id="title">jurus</title>
+  <g font-family="Arial, sans-serif" font-size="72" font-weight="700" fill="#eef3fb">
+    <text x="0" y="72">j</text>
+    <path d="M30 28v23c0 16 9 25 24 25s24-9 24-25V28" fill="none" stroke="#86acff" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="54" cy="51" r="6"/>
+    <text x="84" y="72">rus</text>
+  </g>
+</svg>
