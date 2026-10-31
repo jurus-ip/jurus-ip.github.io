@@ -716,9 +716,10 @@
 
     .work-grid {
       display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
+      grid-template-columns:repeat(3,minmax(0,1fr));
       gap:14px;
       margin-top:16px;
+      align-items:start;
     }
 
     .job {
@@ -737,6 +738,7 @@
 
     .job-top {
       display:flex;
+      flex-wrap:wrap;
       justify-content:space-between;
       gap:14px;
       align-items:start;
@@ -1296,10 +1298,6 @@
       .edu-name,
       .edu-meta {
         max-width:100%;
-      }
-
-      .job-current .job-top {
-        flex-wrap:wrap;
       }
 
       .tools-grid {
